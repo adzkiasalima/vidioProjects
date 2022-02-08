@@ -2,12 +2,8 @@ package com.example.vidioprojects.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.MetaValue;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -22,8 +18,14 @@ public class UserSubscription {
     private Date start;
     @Column(name = "end")
     private Date end;
-    @Column(name = "subs_id")
-    private int subscriptionId;
-    @Column(name = "user_id")
-    private int userId;
+
+    @ManyToOne
+    @JoinColumn(name="subs_id", nullable=false)
+    private Subscription subscription;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 }
+
+
