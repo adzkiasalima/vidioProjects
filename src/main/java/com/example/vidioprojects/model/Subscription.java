@@ -19,5 +19,7 @@ public class Subscription {
     private String name;
     @Column
     private float price;
+    @Column
+    private int periode;
 
 }

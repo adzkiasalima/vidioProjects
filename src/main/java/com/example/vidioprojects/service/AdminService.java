@@ -17,8 +17,6 @@ import java.util.List;
 public class AdminService {
     @Autowired
     VideoRepository videoRepository;
-    UserRepository userRepository;
-    UserSubscriptionRepository userSubscriptionRepository;
 
     public Video setVideoToPremiere(int video_id){
 
@@ -29,13 +27,9 @@ public class AdminService {
         return video;
     }
 
-    boolean isUserSubscribed(int userId){
-        User user = userRepository.getById(userId);
-        List<UserSubscription> userSubscriptionEntry = userSubscriptionRepository.findByUser(user);
-
-
-
-        return true;
-
+    public List<Video> getAllVideo(){
+        return videoRepository.findAll();
     }
+
+
 }
