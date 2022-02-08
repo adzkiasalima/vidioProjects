@@ -19,7 +19,7 @@ public class UserService {
     @Autowired
     UserSubscriptionRepository userSubscriptionRepository;
 
-    boolean isUserSubscribed(int userId){
+    public boolean isUserSubscribed(int userId){
         User user = userRepository.getById(userId);
         List<UserSubscription> userSubscriptionEntry = userSubscriptionRepository.findByUser(user);
 
